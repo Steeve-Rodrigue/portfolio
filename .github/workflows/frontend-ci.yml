@@ -8,10 +8,12 @@ on:
       - '.github/workflows/frontend-ci.yml'
 
 env:
-  REGISTRY: ghcr.io
   IMAGE_NAME: portfolio-frontend
 
 jobs:
+  # ─────────────────────────────────────────
+  # JOB 1 — Test
+  # ─────────────────────────────────────────
   test:
     name: Test
     runs-on: ubuntu-latest
@@ -37,8 +39,10 @@ jobs:
         run: npm run type-check
 
       - name: Lint
-        run: npm run lint
-
+        run: npx eslint . --ext .ts,.tsx --ignore-path .gitignore
+  # ─────────────────────────────────────────
+  # JOB 2 — Build & Push
+  # ─────────────────────────────────────────
   build:
     name: Build & Push
     runs-on: ubuntu-latest
