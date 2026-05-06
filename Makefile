@@ -1,16 +1,16 @@
 .PHONY: dev stop logs db-shell test lint
 
 dev:
-	docker compose up --build
+	sudo docker compose up --build
 
 stop:
-	docker compose down
+	sudo docker compose down
 
 logs:
-	docker compose logs -f api
+	sudo docker compose logs -f api
 
 db-shell:
-	docker compose exec db psql -U portfolio_user -d portfolio
+	sudo docker compose exec db psql -U portfolio_user -d portfolio
 
 test:
 	cd backend && uv run pytest tests/ -v
@@ -20,3 +20,9 @@ lint:
 
 format:
 	cd backend && uv run ruff format app/
+
+uvicorn:
+	cd backend && uv run uvicorn app.main:app 
+
+restart:
+	sudo docker compose restart api
