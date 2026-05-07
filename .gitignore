@@ -1,0 +1,38 @@
+# Environment variables — never commit
+.env
+*.env
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+.python-version
+
+# uv
+.uv/
+
+# pytest
+.pytest_cache/
+htmlcov/
+.coverage
+
+# ruff
+.ruff_cache/
+
+# Docker
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# k8s secrets (if generated locally)
+k8s/secrets/
