@@ -25,7 +25,10 @@ uvicorn:
 	cd backend && uv run uvicorn app.main:app
 
 coverage:
-	cd backend && uv run pytest --cov=app tests/ 
-	
+	cd backend && uv run pytest --cov=app tests/
+
 restart:
 	sudo docker compose restart api
+
+sql-migrate:
+	cd backend && sudo docker compose exec db psql -U portfolio_user -d portfolio -f /docker-entrypoint-initdb.d/${file}

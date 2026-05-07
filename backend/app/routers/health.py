@@ -9,6 +9,7 @@ router = APIRouter(tags=["health"])
 async def health():
     return {"status": "ok"}
 
+
 @router.get("/health_db")
 async def health_db():
     try:
@@ -16,6 +17,6 @@ async def health_db():
         async with pool.acquire() as conn:
             await conn.fetchval("SELECT 1")
         return {"status": "ok", "database": "connected"}
-    
+
     except Exception:
         return {"status": "degraded"}

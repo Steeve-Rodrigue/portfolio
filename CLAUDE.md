@@ -18,7 +18,7 @@ portfolio/
 
 ## Règle fondamentale
 
-Toujours lire `backend/CLAUDE.md` avant d'intervenir sur le backend.  
+Toujours lire `backend/CLAUDE.md` avant d'intervenir sur le backend.
 Le frontend (Next.js) et le backend R (Plumber/Shiny) n'ont pas encore de CLAUDE.md — à créer lors de leur phase respective.
 
 ## Principes transversaux

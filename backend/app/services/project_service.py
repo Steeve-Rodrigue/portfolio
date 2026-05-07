@@ -42,10 +42,22 @@ async def create(pool: asyncpg.Pool, data: ProjectCreate) -> dict:
                 $15, $16
             ) RETURNING *
             """,
-            d["slug"], d["title"], d["problem_statement"], d["methodology"],
-            d["results_impact"], d["metrics"], d["tech_stack"], d["categories"],
-            d["github_url"], d["demo_url"], d["notebook_url"], d["thumbnail_url"],
-            d["has_ml_demo"], d["ml_endpoint"], d["featured"], d["display_order"],
+            d["slug"],
+            d["title"],
+            d["problem_statement"],
+            d["methodology"],
+            d["results_impact"],
+            d["metrics"],
+            d["tech_stack"],
+            d["categories"],
+            d["github_url"],
+            d["demo_url"],
+            d["notebook_url"],
+            d["thumbnail_url"],
+            d["has_ml_demo"],
+            d["ml_endpoint"],
+            d["featured"],
+            d["display_order"],
         )
     return dict(row)
 

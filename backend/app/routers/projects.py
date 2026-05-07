@@ -3,7 +3,12 @@ from typing import Annotated
 from fastapi import APIRouter, HTTPException, Query
 
 from app.core.database import get_pool
-from app.models.project import ProjectCreate, ProjectListResponse, ProjectResponse, ProjectUpdate
+from app.models.project import (
+    ProjectCreate,
+    ProjectListResponse,
+    ProjectResponse,
+    ProjectUpdate,
+)
 from app.services import project_service
 
 router = APIRouter(prefix="/api/v1/projects", tags=["projects"])
