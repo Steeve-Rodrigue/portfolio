@@ -1,7 +1,7 @@
-.PHONY: dev stop logs db-shell test lint
+.PHONY: build stop logs db-shell test lint
 
-dev:
-	sudo docker compose up --build
+build:
+	sudo docker compose up -d --build
 
 stop:
 	sudo docker compose down
@@ -22,7 +22,10 @@ format:
 	cd backend && uv run ruff format app/
 
 uvicorn:
-	cd backend && uv run uvicorn app.main:app 
+	cd backend && uv run uvicorn app.main:app
 
+coverage:
+	cd backend && uv run pytest --cov=app tests/ 
+	
 restart:
 	sudo docker compose restart api

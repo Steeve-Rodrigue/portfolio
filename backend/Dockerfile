@@ -4,8 +4,13 @@ COPY --from=ghcr.io/astral-sh/uv:latest /uv /usr/local/bin/uv
 
 WORKDIR /app
 
+ARG INSTALL_DEV=false
 COPY pyproject.toml uv.lock ./
-RUN uv sync --frozen --no-dev
+RUN if [ "$INSTALL_DEV" = "true" ]; then \
+        uv sync --frozen; \
+    else \
+        uv sync --frozen --no-dev; \
+    fi
 
 COPY app/ ./app/
 

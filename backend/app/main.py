@@ -8,7 +8,7 @@ from fastapi.responses import JSONResponse
 from app.core.database import close_pool
 from app.core.logging_config import setup_logging
 from app.core.middleware import RequestLoggingMiddleware
-from app.routers import health
+from app.routers import health, projects
 
 logger = structlog.get_logger()
 
@@ -30,6 +30,7 @@ app = FastAPI(
 
 app.add_middleware(RequestLoggingMiddleware)
 app.include_router(health.router)
+app.include_router(projects.router)
 
 
 @app.exception_handler(Exception)
